@@ -30,7 +30,7 @@ function App() {
     const movieFav = JSON.parse(
       localStorage.getItem('react-movie-app-favorites')
     );
-    Setfav(movieFav);
+    Setfav(movieFav || []); // if movieFav is null from local storage, set it to be an empty array. Else you get an error that favourites is not iterable. Because there were no movies in the local storage.
   }, []);
 
   const savetoLocalStorage = items => {
